@@ -4,11 +4,13 @@
             [clojure.tools.cli :refer [parse-opts]]))
 
 (defn make-google-client
-  [])
+  [maps-api-key {:keys [interpolate] :or {interpolate true}}]
+  (let [options {:roads {:snap {:url "https://roads.googleapis.com/v1/snapToRoads"
+                                :interpolate interpolate}}}]))
 
-(def cli-options
-  [["-m" "--maps-api GOOGLE-API-KEY" "Google Maps API key"]])
+(def main-cmd-options
+  [["-m" "--maps-api-key GOOGLE-API-KEY" "Google Maps API key"]])
 
 (defn -main [& args]
-  (-> (parse-opts args cli-options)
-      (prn)))
+  (let [{:keys [options arguments]} (parse-opts args main-cmd-options :in-order true)]
+    )

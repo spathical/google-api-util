@@ -7,4 +7,5 @@
   :aot  [google-api-util.core]
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [environ "1.1.0"]
+                 [clj-http "3.7.0"]
                  [org.clojure/tools.cli "0.3.5"]])
